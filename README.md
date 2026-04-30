@@ -1,7 +1,5 @@
 # PulseDesk - AI Comment-to-Ticket Triage System
 
-A Spring Boot application that analyzes user comments and turns user comments into support tickets using AI.
-
 PulseDesk collects user comments and uses AI to decide whether they should become support tickets — generating a title, category, priority, and summary.
 
 If the AI fails or returns invalid output, the system flags the comment for manual review instead of crashing.
@@ -17,6 +15,7 @@ If the AI fails or returns invalid output, the system flags the comment for manu
 - Single AI call per comment instead of multiple — one request returns all ticket fields as JSON
 - Fallback logic if AI response fails to parse — app continues without crashing, if AI response is invalid or cannot be parsed we set manualReview = true and show it in UI
 - H2 in-memory database — no setup needed
+- DTO-based request handling — cleaner than raw maps, makes the API contract explicit
 
 ## Setup
 
@@ -26,6 +25,10 @@ Requirements: Java 21+ and Maven 3.6+
 2. Set your Hugging Face token in `src/main/resources/application.properties`
 3. Run with `mvn spring-boot:run`
 4. Open http://localhost:8080
+
+## Live Demo
+
+https://pulsedesk-production-58c3.up.railway.app
 
 ## Usage
 
