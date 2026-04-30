@@ -22,7 +22,7 @@ If the AI fails or returns invalid output, the system flags the comment for manu
 Requirements: Java 21+ and Maven 3.6+
 
 1. Clone the repo and open the project
-2. Set your Hugging Face token in `src/main/resources/application.properties`
+2. Replace `hf_your_token_here` with your real token from huggingface.co in `src/main/resources/application.properties`
 3. Run with `mvn spring-boot:run`
 4. Open http://localhost:8080
 
