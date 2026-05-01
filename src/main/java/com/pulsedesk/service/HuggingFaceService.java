@@ -66,9 +66,11 @@ public class HuggingFaceService {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         Map<String, Object> body = new HashMap<>();
+
         body.put("model", MODEL);
         body.put("messages", List.of(Map.of("role", "user", "content", prompt)));
         body.put("max_tokens", 150);
+        body.put("temperature", 0.1); // deterministic output, reduces risk of malformed JSON
 
         try {
             ResponseEntity<Map> response = restTemplate.postForEntity(
